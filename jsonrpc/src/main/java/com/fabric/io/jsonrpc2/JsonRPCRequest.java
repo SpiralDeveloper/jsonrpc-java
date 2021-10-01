@@ -1,5 +1,7 @@
 package com.fabric.io.jsonrpc2;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -29,6 +31,8 @@ public class JsonRPCRequest {
         Gson gson = new GsonBuilder()
                 .serializeNulls()
                 .create();
-        return gson.toJson(this);
+        String body = gson.toJson(this);
+        Log.i("JsonRPCRequest", body);
+        return body;
     }
 }
