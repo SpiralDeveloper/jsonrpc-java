@@ -1,0 +1,3 @@
+rootProject.name = "JsonRPC"
+include ':app'
+include ':jsonrpc'
