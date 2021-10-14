@@ -16,12 +16,14 @@ public class SearchResponse {
         this.response = response;
     }
 
-    public <T> List<T> to(Class<T> tClass) {
+    public <T> List<T> to(Type type) {
         Gson gson = new GsonBuilder()
                 .serializeNulls()
                 .create();
-        final Type typeOf = new TypeToken<List<T>>() {
-        }.getType();
-        return gson.fromJson(response.result.toString(), typeOf);
+        return gson.fromJson(response.result.toString(), type);
+    }
+
+    public JsonRPCResponse getResponse(){
+        return response;
     }
 }
